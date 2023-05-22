@@ -3,11 +3,12 @@ import changeColor from 'components/changeColor';
 import css from './Statistics.module.css';
 
 const Statistics = ({
-    stats
+  title,  
+  stats
 }) => {
     return (
         <section className={css.statistics}>
-          <h2 className={css.title}>Upload stats</h2>
+        {title && <h2 className={css.title}>{title}</h2>}
     
 <ul className={css.statList}>
       {stats.map(stat => (
@@ -25,6 +26,7 @@ const Statistics = ({
 );
 };
 Statistics.propTypes = {
+    title: PropTypes.string,
     stats: PropTypes.arrayOf(
     PropTypes.exact({
       id: PropTypes.string.isRequired,
